@@ -8,14 +8,42 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var useRedText = false
+    
+    let motto1 = Text("Draco dormiens")
+    let motto2 = Text("nunquam titillandus")
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button("Hello World") {
+            // flip the Boolean between true and false
+            useRedText.toggle()
         }
-        .padding()
+        .foregroundStyle(useRedText ? .red : .blue)
+        
+        VStack {
+            Text("Gryffindor")
+                .font(.largeTitle) // child takes priority
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
+        }
+        .font(.title)
+        
+        VStack {
+            Text("Gryffindor")
+                .blur(radius: 0)
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
+        }
+        .blur(radius: 5)
+        
+        VStack {
+                    motto1
+                    motto2
+                }
+        
+
     }
 }
 
